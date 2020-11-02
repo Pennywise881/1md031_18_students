@@ -1,0 +1,153 @@
+/* @import url("reset.css");
+@import url("https://fonts.googleapis.com/css?family=Droid+Serif|Share+Tech+Mono");
+
+body {
+    font-family: "Droid Serif", sans-serif;
+    font-size: 12pt;
+}
+
+a, strong, em {
+    color: #0099ff;
+}
+
+p.info,
+#login p {
+    width: 80%;
+    margin: 1vw auto;
+}*/
+
+@media screen and (max-width: 800px) {
+    h1 {
+        font-size: 6vw;
+    }
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2vh;
+}
+
+.allergy{
+    font-weight: bold;
+}
+
+.burger-selection{
+    background-color: black;
+    border: 5px dashed white;
+    /* text-decoration: white; */
+}
+
+.burger-selection table{
+    color: white;
+}
+
+.burger-selection h3{
+    color: white;
+}
+
+.customer-information{
+    border: 10px dashed black;
+}
+
+button:hover{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+table{
+    text-align: center;
+    width: 90%;
+}
+
+table ul{
+    text-align: left;
+    padding-left: 30%;
+}
+
+section{
+    margin: 10px 30px;
+}
+
+button{
+    margin: 20px 0px;
+}
+
+.header{
+    margin: 0px 30px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.header h1{
+    position: absolute;
+    padding-left: 50px;
+    margin-top: -550px;
+}
+
+.header img{
+    opacity: 0.5;
+    width: 100%;
+    height: auto;
+}
+
+.burger-wrapper{
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 250px 250px 250px;
+    background-color: black;
+    color: white;
+}
+
+.burger{
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 120%;
+}
+
+.a{
+    grid-column: 1;
+}
+
+.b{
+    grid-column: 2;
+}
+
+.c{
+    grid-column: 3;
+}
+
+/*.wrapper {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 100px 100px 100px;
+    background-color: #fff;
+    color: #444;
+}
+
+ .box {
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+
+}
+
+.a {
+    grid-column: 1 / span 2;
+}
+.b {
+    grid-column: 3 ;
+    grid-row: 1 / span 2;
+}
+.c {
+    grid-column: 1 ;
+    grid-row: 2 ;
+}
+.d {
+    grid-column: 2 ;
+    grid-row: 2 ;
+} */

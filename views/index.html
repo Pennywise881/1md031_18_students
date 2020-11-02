@@ -4,14 +4,50 @@
 <head>
     <title>Delivery System</title>
     <meta charset="utf-8" />
+    <!-- <link rel="stylesheet" href="../css/reset.css"> -->
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
-    <h1>Welcome to BurgerHeaven Online</h1>
-    <h3>Select burger</h3>
-    <section>
+    <header class="header">
+        <img src="../img/header.png">
+        <h1>Welcome to BurgerHeaven Online</h1>
+    </header>
+    <section class="burger-selection">
+        <h3>Select burger</h3>
         <p>This is where you execute burger selection</p>
-        <table align="center">
+
+        <div class="burger-wrapper">
+            <div class="burger a">
+                The Fire Burger
+                <img src="https://thumbs.dreamstime.com/z/burger-fire-black-background-site-nburger-171834850.jpg"
+                    alt="Span" title="Another in-line element" width="250" , height="369">
+                <ul>
+                    <li>Kobe beef of the highest quality</li>
+                    <li>Covered in fancy cheese(contains <span class="allergy">lactose</span>)</li>
+                </ul>
+            </div>
+
+            <div class="burger b">
+                Fried Turkey Burger
+                <img src="https://am23.mediaite.com/tms/cnt/uploads/2011/04/realmeatisbetter.jpg" alt="Span"
+                    title="Another in-line element" width="250" height="369">
+                <ul>
+                    <li>Deep fried turkish turkey</li>
+                    <li>A slice of pink stuff(contains <span class="allergy">gluten</span>)</li>
+                </ul>
+            </div>
+
+            <div class="burger c">
+                A Double w/ Cheese
+                <img src="https://i.pinimg.com/originals/9c/41/bb/9c41bb0cd0c73d2c22789e33b498dd2f.jpg" alt="Span"
+                    title="Another in-line element" width="250" height="369">
+                <ul>
+                    <li>Two layers of pure meat</li>
+                    <li>Lots of yummy cheese(contains <span class="allergy">gluten</span>)</li>
+                </ul>
+            </div>
+            <!-- <table>
             <thead>
                 <tr>
                     <th>The Fire Burger</th>
@@ -24,7 +60,7 @@
                 <tr>
                     <td>
                         <img src="https://thumbs.dreamstime.com/z/burger-fire-black-background-site-nburger-171834850.jpg"
-                            alt="Span" title="Another in-line element" width="250">
+                            alt="Span" title="Another in-line element" width="250" , height="369">
                     </td>
                     <td>
                         <img src="https://am23.mediaite.com/tms/cnt/uploads/2011/04/realmeatisbetter.jpg" alt="Span"
@@ -39,27 +75,27 @@
                     <td>
                         <ul>
                             <li>Kobe beef of the highest quality</li>
-                            <li>Covered in fancy cheese(contains lactose)</li>
+                            <li>Covered in fancy cheese(contains <span class="allergy">lactose</span>)</li>
                         </ul>
                     </td>
                     <td>
                         <ul>
                             <li>Deep fried turkish turkey</li>
-                            <li>A slice of pink stuff(contains gluten)</li>
+                            <li>A slice of pink stuff(contains <span class="allergy">gluten</span>)</li>
                         </ul>
                     </td>
                     <td>
                         <ul>
                             <li>Two layers of pure meat</li>
-                            <li>Lots of yummy cheese(contains gluten)</li>
+                            <li>Lots of yummy cheese(contains <span class="allergy">gluten</span>)</li>
                         </ul>
                     </td>
                 </tr>
             </tbody>
-        </table>
+        </table> -->
     </section>
 
-    <section>
+    <section class="customer-information">
         <h3>Customer information</h3>
         <p>This is where you provide necessary information</p>
         <main>
@@ -105,7 +141,9 @@
             </section>
         </main>
     </section>
+    
     <button type="submit"><img src="../img/check.png">Send Info</button>
+    </div>
 
     <hr>
     <footer>
