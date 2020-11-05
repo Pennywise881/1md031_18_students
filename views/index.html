@@ -6,6 +6,10 @@
     <meta charset="utf-8" />
     <!-- <link rel="stylesheet" href="../css/reset.css"> -->
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/menu.js" defer></script>
+    <script src="../js/js_script.js" defer></script>
+    <script src="https://vuejs.org/js/vue.js" defer></script>
+    <script src="../js/vue_script.js" defer></script>
 </head>
 
 <body>
@@ -15,84 +19,24 @@
     </header>
     <section class="burger-selection">
         <h3>Select burger</h3>
-        <p>This is where you execute burger selection</p>
+        <p style="color: white;">This is where you execute burger selection</p>
 
-        <div class="burger-wrapper">
-            <div class="burger a">
-                The Fire Burger
-                <img src="https://thumbs.dreamstime.com/z/burger-fire-black-background-site-nburger-171834850.jpg"
-                    alt="Span" title="Another in-line element" width="250" , height="369">
+        <div class="burger-wrapper" id="burgerInfo">
+            <div v-for="(burger, index) in burgers" v-bind:class="get_class_name(index)">
+                {{burger.name}}
+                <input type="checkbox" v-bind:id="`burger`+index" v-bind:name="get_burger_name(index)">
+
+                <img v-bind:src="`${burger.img}`" width="250" height="369">
                 <ul>
-                    <li>Kobe beef of the highest quality</li>
-                    <li>Covered in fancy cheese(contains <span class="allergy">lactose</span>)</li>
+                    <li v-for="burgerInfo in burger.info">
+                        {{burgerInfo}}
+                    </li>
+                    <li>Number of Calories: {{burger.kCal}}</li>
+                    <li v-if="burger.gluten" class="allergy">Contains - gluten</li>
+                    <li v-if="burger.lactose" class="allergy">Contains - lactose</li>
                 </ul>
             </div>
-
-            <div class="burger b">
-                Fried Turkey Burger
-                <img src="https://am23.mediaite.com/tms/cnt/uploads/2011/04/realmeatisbetter.jpg" alt="Span"
-                    title="Another in-line element" width="250" height="369">
-                <ul>
-                    <li>Deep fried turkish turkey</li>
-                    <li>A slice of pink stuff(contains <span class="allergy">gluten</span>)</li>
-                </ul>
-            </div>
-
-            <div class="burger c">
-                A Double w/ Cheese
-                <img src="https://i.pinimg.com/originals/9c/41/bb/9c41bb0cd0c73d2c22789e33b498dd2f.jpg" alt="Span"
-                    title="Another in-line element" width="250" height="369">
-                <ul>
-                    <li>Two layers of pure meat</li>
-                    <li>Lots of yummy cheese(contains <span class="allergy">gluten</span>)</li>
-                </ul>
-            </div>
-            <!-- <table>
-            <thead>
-                <tr>
-                    <th>The Fire Burger</th>
-                    <th>Fried Turkey Burger</th>
-                    <th>A Double w/ Cheese</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr>
-                    <td>
-                        <img src="https://thumbs.dreamstime.com/z/burger-fire-black-background-site-nburger-171834850.jpg"
-                            alt="Span" title="Another in-line element" width="250" , height="369">
-                    </td>
-                    <td>
-                        <img src="https://am23.mediaite.com/tms/cnt/uploads/2011/04/realmeatisbetter.jpg" alt="Span"
-                            title="Another in-line element" width="250" height="369">
-                    </td>
-                    <td>
-                        <img src="https://i.pinimg.com/originals/9c/41/bb/9c41bb0cd0c73d2c22789e33b498dd2f.jpg"
-                            alt="Span" title="Another in-line element" width="250" height="369">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <ul>
-                            <li>Kobe beef of the highest quality</li>
-                            <li>Covered in fancy cheese(contains <span class="allergy">lactose</span>)</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Deep fried turkish turkey</li>
-                            <li>A slice of pink stuff(contains <span class="allergy">gluten</span>)</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Two layers of pure meat</li>
-                            <li>Lots of yummy cheese(contains <span class="allergy">gluten</span>)</li>
-                        </ul>
-                    </td>
-                </tr>
-            </tbody>
-        </table> -->
+        </div>
     </section>
 
     <section class="customer-information">
@@ -105,22 +49,22 @@
                     <p>
                         <label for="firstnamelastname">Full Name</label>
                         <br>
-                        <input type="text" id="fullname" required="required" placeholder="First- and Last name">
+                        <input type="text" id="fullname" placeholder="First- and Last name" required>
                     </p>
                     <p>
                         <label for="email">Email</label>
                         <br>
-                        <input type="text" id="email" required="required" placeholder="Email Address">
+                        <input type="text" id="email" placeholder="Email Address" required>
                     </p>
                     <p>
-                        <label for="steet">Street</label>
+                        <label for="street">Street</label>
                         <br>
-                        <input type="text" id="str" required="required" placeholder="Street Name">
+                        <input type="text" id="str" placeholder="Street Name" required>
                     </p>
                     <p>
                         <label for="house">House</label>
                         <br>
-                        <input type="number" id="hs" required="required" placeholder="House Number">
+                        <input type="number" id="hs" placeholder="House Number" required>
                     </p>
                     <p>
                         <label for="Payment">Payment Options</label><br>
@@ -131,18 +75,22 @@
                         </select>
                     </p>
                     <label for="gender">Gender</label><br>
-                    <input type="radio" id="male" name="gender" value="male">
+                    <input type="radio" id="male" name="gender" value="Male">
                     <label for="male">Male</label><br>
-                    <input type="radio" id="female" name="gender" value="female">
+                    <input type="radio" id="female" name="gender" value="Female">
                     <label for="female">Female</label><br>
-                    <input type="radio" id="undisclosed" name="gender" value="undisclosed">
+                    <input type="radio" id="undisclosed" name="gender" value="Do not wish to provide">
                     <label for="undisclosed">Do not wish to provide</label><br>
                 </form>
             </section>
         </main>
     </section>
-    
-    <button type="submit"><img src="../img/check.png">Send Info</button>
+    <!-- v-on:click="getOrder()" -->
+    <button type="submit" id="submitButton" v-on:click="display_order_info()"><img
+            src="../img/check.png">SendInfo</button>
+
+    <div id="orderInfo" style="display: none;">
+
     </div>
 
     <hr>

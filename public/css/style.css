@@ -82,7 +82,7 @@ button{
 .header h1{
     position: absolute;
     padding-left: 50px;
-    margin-top: -550px;
+    margin-top: -28%;
 }
 
 .header img{
@@ -94,7 +94,7 @@ button{
 .burger-wrapper{
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: 250px 250px 250px;
+    grid-template-columns: 300px 300px 300px 300px 300px;
     background-color: black;
     color: white;
 }
@@ -117,6 +117,14 @@ button{
 
 .c{
     grid-column: 3;
+}
+
+.d{
+    grid-column: 4;
+}
+
+.e{
+    grid-column: 5;
 }
 
 /*.wrapper {
