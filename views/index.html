@@ -86,11 +86,14 @@
         </main>
     </section>
     <!-- v-on:click="getOrder()" -->
-    <button type="submit" id="submitButton" v-on:click="display_order_info()"><img
-            src="../img/check.png">SendInfo</button>
+    <button type="submit" id="submitButton" v-on:click="display_order_info()"><img src="../img/check.png">Send
+        Info</button>
 
-    <div id="orderInfo" style="display: none;">
-
+    <div id="orderInfo" v-bind:style="order.length > 0 ? {'display': 'block'} : {'display': 'none'}">
+        <h1> Your Order Information </h1>
+        <p v-for="i in labels.length">
+            <span v-bind:style="{'font-weight': 'bold'}">{{labels[i-1]}}</span>{{order[i-1]}}
+        </p>
     </div>
 
     <hr>

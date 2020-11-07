@@ -1,3 +1,4 @@
+// const { default: Vue } = require("vue");
 
 var vm = new Vue({
     el: '#burgerInfo',
@@ -22,15 +23,22 @@ var vm = new Vue({
     },
 })
 
+var oi = new Vue({
+    el: "#orderInfo",
+    data: {
+        order: [],
+        labels: ["Name: ", "Email: ", "Street: ", "House Number: ", "Payment Option: ", "Gender: ", "Food Ordered: "],
+        display: false,
+    },
+})
+
 var vm2 = new Vue({
     el: '#submitButton',
-    data: {
-        burgers: burgers
-    },
     methods: {
         display_order_info: function ()
         {
-            var orderInfo = [];
+            // var orderInfo = [];
+            // console.log("Hello");
 
             var name = document.getElementById('fullname').value;
             var email = document.getElementById('email').value;
@@ -51,12 +59,17 @@ var vm2 = new Vue({
                 gender = document.getElementById('undisclosed').value;
             }
 
-            orderInfo.push(name);
-            orderInfo.push(email);
-            orderInfo.push(street);
-            orderInfo.push(house);
-            orderInfo.push(paymentOption);
-            orderInfo.push(gender);
+            // oi.order.push(name);
+
+
+            oi.order.push(name);
+            oi.order.push(email);
+            oi.order.push(street);
+            oi.order.push(house);
+            oi.order.push(paymentOption);
+            oi.order.push(gender);
+
+            // console.log(oi.order);
 
             food = [];
             for (i = 0; i < burgers.length; i++)
@@ -67,37 +80,37 @@ var vm2 = new Vue({
                 }
             }
 
-            orderInfo.push(food);
-            // console.log(orderInfo);
+            oi.order.push(food);
+            console.log(oi.order);
 
-            var orderDisplay = document.getElementById('orderInfo');
-            orderDisplay.setAttribute("style", "display: block;");
+            // var orderDisplay = document.getElementById('orderInfo');
+            // orderDisplay.setAttribute("style", "display: block;");
 
-            // console.log(orderInfo.length);
-            orderDisplay.innerHTML = '';
-            var heading = document.createElement("h1");
-            heading.setAttribute('style', 'text-decoration: underline;');
-            heading.appendChild(document.createTextNode("Your order information:"));
-            orderDisplay.appendChild(heading);
+            // // console.log(orderInfo.length);
+            // orderDisplay.innerHTML = '';
+            // var heading = document.createElement("h1");
+            // heading.setAttribute('style', 'text-decoration: underline;');
+            // heading.appendChild(document.createTextNode("Your order information:"));
+            // orderDisplay.appendChild(heading);
 
-            var labels = ["Name: ", "Email: ", "Street: ", "House Number: ", "Payment Option: ", "Gender: ", "Food Ordered: "];
+            // var labels = ["Name: ", "Email: ", "Street: ", "House Number: ", "Payment Option: ", "Gender: ", "Food Ordered: "];
 
-            for (i = 0; i < orderInfo.length; i++)
-            {
-                // var label = document.createElement('label');
-                // label.setAttribute("style", "font-weight: bold;");
-                // label.appendChild(document.createTextNode(labels[i]));
+            // for (i = 0; i < orderInfo.length; i++)
+            // {
+            //     // var label = document.createElement('label');
+            //     // label.setAttribute("style", "font-weight: bold;");
+            //     // label.appendChild(document.createTextNode(labels[i]));
 
-                var paragraph = document.createElement('p');
-                // paragraph.appendChild(document.createTextNode(labels[i]);
-                var label = document.createElement('span');
-                label.setAttribute('style', 'font-weight:bold;');
-                label.appendChild(document.createTextNode(labels[i]));
-                paragraph.appendChild(label);
-                paragraph.appendChild(document.createTextNode(orderInfo[i]));
-                // orderDisplay.appendChild(label);
-                orderDisplay.appendChild(paragraph);
-            }
+            //     var paragraph = document.createElement('p');
+            //     // paragraph.appendChild(document.createTextNode(labels[i]);
+            //     var label = document.createElement('span');
+            //     label.setAttribute('style', 'font-weight:bold;');
+            //     label.appendChild(document.createTextNode(labels[i]));
+            //     paragraph.appendChild(label);
+            //     paragraph.appendChild(document.createTextNode(orderInfo[i]));
+            //     // orderDisplay.appendChild(label);
+            //     orderDisplay.appendChild(paragraph);
+            // }
         }
     }
 })
