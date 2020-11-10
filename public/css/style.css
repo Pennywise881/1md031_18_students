@@ -94,6 +94,7 @@ button{
 .burger-wrapper{
     display: grid;
     grid-gap: 10px;
+    overflow: scroll;
     grid-template-columns: 300px 300px 300px 300px 300px;
     background-color: black;
     color: white;

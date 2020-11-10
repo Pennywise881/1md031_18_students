@@ -96,8 +96,10 @@
 
 //     var name = document.getElementById('fullname').value;
 //     var email = document.getElementById('email').value;
-//     var street = document.getElementById('str').value;
-//     var house = document.getElementById('hs').value;
+/*
+    // var street = document.getElementById('str').value;
+    // var house = document.getElementById('hs').value;
+*/
 //     var paymentOption = document.getElementById('paymentop').value;
 //     var gender = "Unspecified";
 //     if (document.getElementById('male').checked)
@@ -142,7 +144,7 @@
 //     heading.appendChild(document.createTextNode("Your order information:"));
 //     orderDisplay.appendChild(heading);
 
-//     var labels = ["Name: ", "Email: ", "Street: ", "House Number: ", "Payment Option: ", "Gender: ", "Food Ordered: "];
+//     var labels = ["Name: ", "Email: ", /*"Street: ", "House Number: ", */"Payment Option: ", "Gender: ", "Food Ordered: "];
 
 //     for (i = 0; i < orderInfo.length; i++)
 //     {
