@@ -51,23 +51,13 @@
                     <p>
                         <label for="firstnamelastname">Full Name</label>
                         <br>
-                        <input type="text" id="fullname" placeholder="First- and Last name" required>
+                        <input type="text" id="fullname" placeholder="First- and Last name">
                     </p>
                     <p>
                         <label for="email">Email</label>
                         <br>
-                        <input type="text" id="email" placeholder="Email Address" required>
+                        <input type="text" id="email" placeholder="Email Address">
                     </p>
-                    <!-- <p>
-                        <label for="street">Street</label>
-                        <br>
-                        <input type="text" id="str" placeholder="Street Name" required>
-                    </p>
-                    <p>
-                        <label for="house">House</label>
-                        <br>
-                        <input type="number" id="hs" placeholder="House Number" required>
-                    </p> -->
                     <p>
                         <label for="Payment">Payment Options</label><br>
                         <select id="paymentop">
@@ -77,37 +67,48 @@
                         </select>
                     </p>
                     <label for="gender">Gender</label><br>
-                    <input type="radio" id="male" name="gender" value="Male">
+                    <input type="radio" name="gender" value="Male">
                     <label for="male">Male</label><br>
-                    <input type="radio" id="female" name="gender" value="Female">
+                    <input type="radio" name="gender" value="Female">
                     <label for="female">Female</label><br>
-                    <input type="radio" id="undisclosed" name="gender" value="Do not wish to provide">
+                    <input type="radio" name="gender" value="Undisclosed" checked>
                     <label for="undisclosed">Do not wish to provide</label><br>
                 </form>
 
-                <h1> Click in the map! </h1>
-                <a href="/dispatcher" target="_blank">Open dispatcher in new window</a>.
+                <h1> Click in the map to add your location </h1>
+                <!-- <a href="/dispatcher" target="_blank">Open dispatcher in new window</a>. -->
                 <div class="view-box">
-                    <!-- <div id="dots" v-on:click="showLocation">
-                        <div v-if="(Object.keys(this.currentOrder).length) > 0"
-                            v-bind:style="{ left: this.currentOrder.details.x +'px', top: this.currentOrder.details.y + 'px'}">
+                    <div id="dots" v-on:click="displayOrder">
+                        <div v-if="(Object.keys(this.orders).length > 0)"
+                            v-bind:style="{ left: this.orders.details.x +'px', top: this.orders.details.y + 'px'}">
                             T
                         </div>
-                    </div> -->
-
-                    <div id="dots">
-                        T
                     </div>
                 </div>
 
             </section>
         </main>
 
-        <!-- <button type="submit" id="submitButton" v-on:click="addOrder"><img src="../img/check.png">Send
-            Info</button> -->
-
         <button type="submit" id="submitButton" v-on:click="addOrder"><img src="../img/check.png">Send
             Info</button>
+
+        <div v-bind:style="Object.keys(allInfo).length === 0 ? {'display': 'none'} : {'display': 'block'}">
+            <h1>Order Confirmation</h1>
+            <h4>Customer details</h4>
+            <span v-for="(info, key) in allInfo.customer">
+                {{key}}: {{info}} <br>
+            </span>
+            <span v-if="allInfo.hasOwnProperty('order')">location: {{allInfo.order.details.x}} /
+                {{allInfo.order.details.y}}</span>
+
+            <h4>Order summary</h4>
+            <!-- <span v-for="item in allInfo.order.orderItems">{{item}} <br></span> -->
+            <span v-if="allInfo.hasOwnProperty('order')">
+                <span v-for="item in allInfo.order.orderItems">{{item}} <br></span>
+            </span>
+        </div>
+
+
     </section>
 
     <!-- <div id="orderInfo" v-bind:style="order.length > 0 ? {'display': 'block'} : {'display': 'none'}">

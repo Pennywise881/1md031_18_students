@@ -38,15 +38,19 @@ app.get('/dispatcher', function (req, res)
 function Data()
 {
   this.orders = {};
+  this.customerInfo = {};
+  this.counter = 1;
 }
 
 /*
   Adds an order to to the queue
 */
-Data.prototype.addOrder = function (order)
+Data.prototype.addOrder = function (order, customerInfo)
 {
   //Store the order in an "associative array" with orderId as key
+  order.orderId = this.counter++;
   this.orders[order.orderId] = order;
+  this.customerInfo[order.orderId] = customerInfo;
 };
 
 Data.prototype.getAllOrders = function ()
@@ -54,19 +58,27 @@ Data.prototype.getAllOrders = function ()
   return this.orders;
 };
 
+Data.prototype.getAllCustomerInfo = function ()
+{
+  // console.log("This is all the customer info: ");
+  // console.log(this.customerInfo);
+  return this.customerInfo;
+};
+
 var data = new Data();
 
 io.on('connection', function (socket)
 {
   // Send list of orders when a client connects
-  socket.emit('initialize', { orders: data.getAllOrders() });
+  socket.emit('initialize', { orders: data.getAllOrders(), customerInfo: data.getAllCustomerInfo() });
 
   // When a connected client emits an "addOrder" message
-  socket.on('addOrder', function (order)
+  socket.on('addOrder', function (order, customerInfo)
   {
-    data.addOrder(order);
+    data.addOrder(order, customerInfo);
+
     // send updated info to all connected clients, note the use of io instead of socket
-    io.emit('currentQueue', { orders: data.getAllOrders() });
+    io.emit('currentQueue', { orders: data.getAllOrders(), customerInfo: data.getAllCustomerInfo() });
   });
 
 });
