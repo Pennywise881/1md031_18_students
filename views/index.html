@@ -76,7 +76,6 @@
                 </form>
 
                 <h1> Click in the map to add your location </h1>
-                <!-- <a href="/dispatcher" target="_blank">Open dispatcher in new window</a>. -->
                 <div class="view-box">
                     <div id="dots" v-on:click="displayOrder">
                         <div v-if="(Object.keys(this.orders).length > 0)"
@@ -102,21 +101,11 @@
                 {{allInfo.order.details.y}}</span>
 
             <h4>Order summary</h4>
-            <!-- <span v-for="item in allInfo.order.orderItems">{{item}} <br></span> -->
             <span v-if="allInfo.hasOwnProperty('order')">
                 <span v-for="item in allInfo.order.orderItems">{{item}} <br></span>
             </span>
         </div>
-
-
     </section>
-
-    <!-- <div id="orderInfo" v-bind:style="order.length > 0 ? {'display': 'block'} : {'display': 'none'}">
-        <h1> Your Order Information </h1>
-        <p v-for="i in labels.length">
-            <span v-bind:style="{'font-weight': 'bold'}">{{labels[i-1]}}</span>{{order[i-1]}}
-        </p>
-    </div> -->
 
     <hr>
     <footer>
